@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+background-color: aqua;
+}
+.page{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+.movie-card{
+    width: 18%;
+    margin-bottom: 50px;
+}
+.nextPrev{
+    display: flex;
+}
+#pageNumber{
+    visibility: hidden;
+}
