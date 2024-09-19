@@ -18,6 +18,7 @@ app.get("/Shows",async(req,res)=>{
         try {
                 const response = await axios.get(`https://api.tvmaze.com/shows?page=0`);
                 const result = response.data;
+                console.log(`page: 1`);
                 res.render("shows.ejs" ,{ shows: result,pageNumber:1});
               } catch (error) {
                 console.error("Failed to make request:", error.message);
