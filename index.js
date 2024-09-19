@@ -4,8 +4,8 @@ import bodyParser from "body-parser";
 
 const port=3000;
 const app=express();
+//pages 0-318
 
-let ind=0;//pages 0-318
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -16,7 +16,7 @@ app.get("/",async(req,res)=>{
 
 app.get("/Shows",async(req,res)=>{
         try {
-                const response = await axios.get(`https://api.tvmaze.com/shows?page=${ind}`);
+                const response = await axios.get(`https://api.tvmaze.com/shows?page=0`);
                 const result = response.data;
                 res.render("shows.ejs" ,{ shows: result,pageNumber:1});
               } catch (error) {
@@ -34,9 +34,13 @@ app.post("/changePage", async (req, res) => {
             t--; 
         } else if (action === 'next' && t < 319) {
             t++; 
-        }
-        ind=t-1;
-       const response = await axios.get(`https://api.tvmaze.com/shows?page=${ind}`);
+        }else if (action === 'start') {
+          t=1; 
+      }else if (action === 'end') {
+          t=319; 
+      }
+        console.log(`page: ${t}`);
+       const response = await axios.get(`https://api.tvmaze.com/shows?page=${t-1}`);
        const result = response.data;
        res.render("shows.ejs" ,{ shows: result, pageNumber:t});
     });

@@ -2,21 +2,103 @@
     margin: 0;
     padding: 0;
 }
-main{
-background-color: aqua;
+/* header */
+#header{
+    position: fixed;
+    width: 100%;
+    background-color: #229799;
 }
+
+li>a{
+    font-weight: 800;
+    font-size: 2rem;
+}
+li>a:hover{
+    scale: 1.1;
+}
+header{
+    display: flex;
+    justify-content: center;
+}
+/* main */
+body::-webkit-scrollbar {
+    display: none;
+
+  }
+main{
+padding-top: 120px;
+}
+/* about */
+.about{
+height: 500px;
+}
+/* shows-page */
+.shows-content{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+#top{
+    transform: rotate(-90deg);
+}
+#bottom{
+    transform: rotate(90deg);
+}
+#back-to-top,#back-to-bottom{
+    width: 120px;
+    height: 50px;
+   position: fixed;
+   left: 80px;
+
+}
+#back-to-top{
+    bottom: 30px;
+}
+#back-to-bottom{
+   top:120px;  
+}
+/* page changer */
+.nextPrev{
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+}
+form{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 300px;
+    gap: 5px;
+}
+form button{
+    height: 40px;
+}
+button>img{
+    width: 40px;
+}
+.back{
+    transform: rotate(180deg);
+}
+input{
+    width: 50px;
+    text-align: center;
+    font-size: 1.2rem;
+    height: 40px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* shows */
 .page{
     display: flex;
     flex-wrap: wrap;
     justify-content:center;
 }
 .movie-card{
-    width: 18%;
+    width: 20%;
     margin-bottom: 50px;
 }
-.nextPrev{
-    display: flex;
-}
-#pageNumber{
-    visibility: hidden;
-}
+

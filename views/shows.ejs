@@ -1,17 +1,20 @@
 <%-include("partials/header.ejs") %>
-<div class="nextPrev"></div>
+<div class="shows-content">
+ <div class="nextPrev">
     <form action="/changePage" method="POST">
         <% if(pageNumber!==1) {%>
-            <button name="action"  value="prev" type="submit">Prev</button>
+            <button name="action" value="start" type="submit"><img class ="back" src="https://cdn.icon-icons.com/icons2/2020/PNG/512/arrow_next_right_icon_123723.png"></button>
+            <button name="action"  value="prev" type="submit"><img class ="back" src="https://cdn.icon-icons.com/icons2/1993/PNG/512/arrows_chevron_direction_left_move_next_right_icon_123222.png"></button>
             <% } else{ %>
                 <% } %>
-        <input id="pageNumber" name="pageNumber" type="number" value="<%=pageNumber  %>"><span>Page <%=pageNumber  %></span>
-         <% if(pageNumber!==318) {%>
-            <button name="action" value="next" type="submit">Next</button>
+        <input id="pageNumber" name="pageNumber" type="number" value="<%=pageNumber  %>" max="318" readonly>
+         <% if(pageNumber!==319) {%>
+            <button name="action" value="next" type="submit"><img src="https://cdn.icon-icons.com/icons2/1993/PNG/512/arrows_chevron_direction_left_move_next_right_icon_123222.png"></button>
+            <button name="action" value="end" type="submit"><img src="https://cdn.icon-icons.com/icons2/2020/PNG/512/arrow_next_right_icon_123723.png"></button>
             <% } else{ %>
                 <% } %>
     </form>
-</div>
+ </div>
 <div class="page">
 <% if(locals.shows) {%>
 <% shows.forEach(show => { %>
@@ -28,4 +31,18 @@
     <h3>error</h3>
     <% } %>
 </div>
+<button id="back-to-top"><img id="top" src="https://cdn.icon-icons.com/icons2/1993/PNG/512/arrows_chevron_direction_left_move_next_right_icon_123222.png"></button>
+<button id="back-to-bottom"><img id="bottom" src="https://cdn.icon-icons.com/icons2/1993/PNG/512/arrows_chevron_direction_left_move_next_right_icon_123222.png"></button>
+
+<script>
+    $('#back-to-top').click(function() {
+        $('html, body').animate({scrollTop: 0}, 600);
+        return false;
+    });
+    document.getElementById("back-to-bottom").addEventListener("click", function() {
+    document.body.scrollIntoView({ behavior: "smooth", block: "end" });
+    });
+</script>
+</div>
+
 <%-include("partials/footer.ejs") %>
