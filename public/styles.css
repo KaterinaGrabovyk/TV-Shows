@@ -4,7 +4,7 @@
 }
 
 body{
-    color: #19989a;
+    color: #20cacd;
 }
 body::-webkit-scrollbar {
     display: none;
@@ -62,9 +62,13 @@ button:hover{
 }
 
 #top{
+    width: 60px;
+    filter: invert(18%) sepia(66%) saturate(4183%) hue-rotate(351deg) brightness(94%) contrast(106%);
     transform: rotate(-90deg);
 }
 #bottom{
+    width: 60px;
+    filter: invert(18%) sepia(66%) saturate(4183%) hue-rotate(351deg) brightness(94%) contrast(106%);
     transform: rotate(90deg);
 }
 #back-to-top,#back-to-bottom{
@@ -72,7 +76,6 @@ button:hover{
     height: 50px;
    position: fixed;
    left: 120px;
-
 }
 #back-to-top{
     bottom: 30px;
@@ -96,22 +99,23 @@ form{
     gap: 5px;
 }
 form button{
-    height: 40px;
+    height: 50px;
 }
 button>img{
-    width: 40px;
+    height: 100%;
+    filter: invert(18%) sepia(66%) saturate(4183%) hue-rotate(351deg) brightness(94%) contrast(106%);
 }
 .back{
     transform: rotate(180deg);
 }
 input{
     background: none;
-    border: none;
-    color: #fefefe;
-    width: 50px;
+    border: 1px solid #CD1818;
+    color: #20cacd;
+    width: 60px;
     text-align: center;
-    font-size: 1.7rem;
-    height: 38px;
+    font-size: 2rem;
+    pad: 4px 0;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -130,13 +134,16 @@ input::-webkit-inner-spin-button {
 }
 .movie-card h3{
     text-align: center;
-width: 210px;
+    width: 210px;
 }
-
+/* show */
+.show-page{
+    height: 500px;
+}
 /* footer */
 footer{
     height: 250px;
-    background-color: #CD1818;
+    background-color: #116D6E;
     font-size: 3rem;
 }
 footer svg{

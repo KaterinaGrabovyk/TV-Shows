@@ -1,16 +1,16 @@
 <%-include("partials/header.ejs") %>
 <div class="shows-content">
  <div class="nextPrev">
-    <form action="/changePage" method="POST">
+    <form action="/Shows" method="POST">
         <% if(pageNumber!==1) {%>
-            <button name="action" value="start" type="submit"><img class ="back" src="https://cdn.icon-icons.com/icons2/2020/PNG/512/arrow_next_right_icon_123723.png"></button>
-            <button name="action"  value="prev" type="submit"><img class ="back" src="https://cdn.icon-icons.com/icons2/1993/PNG/512/arrows_chevron_direction_left_move_next_right_icon_123222.png"></button>
+            <button name="action" value="start" type="submit"><img class ="back" src="arrow2.png"></button>
+            <button name="action"  value="prev" type="submit"><img class ="back" src="arrow.png"></button>
             <% } else{ %>
                 <% } %>
         <input id="pageNumber" name="pageNumber" type="number" value="<%=pageNumber  %>" max="318" readonly>
          <% if(pageNumber!==319) {%>
-            <button name="action" value="next" type="submit"><img src="https://cdn.icon-icons.com/icons2/1993/PNG/512/arrows_chevron_direction_left_move_next_right_icon_123222.png"></button>
-            <button name="action" value="end" type="submit"><img src="https://cdn.icon-icons.com/icons2/2020/PNG/512/arrow_next_right_icon_123723.png"></button>
+            <button name="action" value="next" type="submit"><img src="arrow.png"></button>
+            <button name="action" value="end" type="submit"><img src="arrow2.png"></button>
             <% } else{ %>
                 <% } %>
     </form>
@@ -19,11 +19,13 @@
 <% if(locals.shows) {%>
 <% shows.forEach(show => { %>
 <div class="movie-card">
+    <a href="/Shows/<%=show.id %>" >
     <% if(show.image) {%>
-    <img src="<%=show.image.medium  %>" alt="">
+        <img src="<%=show.image.medium  %>" alt="">
     <% } else {%>
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg" width="210" height="295" alt="">
         <% } %>
+    </a>
     <h3><%=show.name %></h3>
 </div>
 <%}); %>
@@ -31,8 +33,8 @@
     <h3>error</h3>
     <% } %>
 </div>
-<button id="back-to-top"><img id="top" src="https://cdn.icon-icons.com/icons2/1993/PNG/512/arrows_chevron_direction_left_move_next_right_icon_123222.png"></button>
-<button id="back-to-bottom"><img id="bottom" src="https://cdn.icon-icons.com/icons2/1993/PNG/512/arrows_chevron_direction_left_move_next_right_icon_123222.png"></button>
+<button id="back-to-top"><img id="top" src="arrow.png"></button>
+<button id="back-to-bottom"><img id="bottom" src="arrow.png"></button>
 
 <script>
     $('#back-to-top').click(function() {

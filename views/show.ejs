@@ -1,0 +1,16 @@
+<%-include("partials/header.ejs") %>
+<button onclick="goBack()">Go Back</button>
+<script>
+    function goBack() {
+    window.history.back();
+    }
+</script>
+    <div class="show-page">
+        <% if(im) {%>
+            <img src="<%=im.medium  %>" alt="">
+        <% } else {%>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg" width="210" height="295" alt="">
+            <% } %>
+        <h3><%=title %></h3>
+    </div>
+<%-include("partials/footer.ejs") %>
