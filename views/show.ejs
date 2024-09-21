@@ -1,16 +1,44 @@
 <%-include("partials/header.ejs") %>
-<button onclick="goBack()">Go Back</button>
-<script>
-    function goBack() {
-    window.history.back();
-    }
-</script>
-    <div class="show-page">
-        <% if(im) {%>
-            <img src="<%=im.medium  %>" alt="">
-        <% } else {%>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg" width="210" height="295" alt="">
+
+<button onclick="goBack()" class="prev-page">Go Back</button>
+<div class="show-page">
+  <div class="container">
+    <div class="row">
+      <% if(show.image) {%>
+      <img src="<%=show.image.original  %>" alt="" class="col col-4" />
+      <% } else {%>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+        width="210"
+        height="295"
+        alt=""
+        class="col col-4"
+      />
+      <% } %>
+      <div class="col col-8">
+        <h3><a href="<%=show.url %>" target="blank">Source page</a></h3>
+        <h3>Title: <span><%=show.name %></span></h3>
+        <h3>Type: <span><%=show.type %></span></h3>
+        <h3>Status: <span
+          <% if(show.status==="Running") {%>
+            class="running"
             <% } %>
-        <h3><%=title %></h3>
+          ><%=show.status %></span></h3>
+        <h3>Genres: <span><%=show.genres %></span></h3>
+        <h3>Language: <span><%=show.language %></span></h3>
+        <h3>
+          Cast: <% actors.forEach(actor => {%> <%= actor.person.name %>, <% });
+          %>
+        </h3>
+      </div>
+      <p class="col col-12"><%- show.summary %></p>
     </div>
+  </div>
+</div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
 <%-include("partials/footer.ejs") %>

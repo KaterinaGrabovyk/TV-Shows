@@ -1,0 +1,19 @@
+<%-include("partials/header.ejs") %>
+<div class="random-movie">
+  <div>
+    <a href="<%=show.url %>" target="blank">
+      <% if(show.image) {%>
+      <img src="<%=show.image.medium  %>" alt="" />
+      <% } else {%>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+        width="210"
+        height="295"
+        alt=""
+      />
+      <% } %>
+    </a>
+    <h3 style="width: 210px; text-align:center;"><%=show.name %></h3>
+  </div>
+</div>
+<%-include("partials/footer.ejs") %>
